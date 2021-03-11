@@ -9,7 +9,9 @@ namespace CSharpFinal.Classes
 {
     class Products : IProduct
     {
-        private Products[] products = new Products[0];
+        
+
+        public Products[] products = new Products[0];
 
         public string Name { get; set; }
         public double Price { get; set; }
@@ -20,9 +22,9 @@ namespace CSharpFinal.Classes
         public Products()
         {
             _id++;
-            Id = _id++;
+            Id = _id;
         }
-        public Products(string name, double price,int number)
+        public Products(string name, double price,int number):this()
         {
             Name = name;
             Price = price;
@@ -30,19 +32,10 @@ namespace CSharpFinal.Classes
 
         }
 
-        public void ShowProduct()
+        public override string ToString()
         {
-            foreach (Products item in products)
-            {
-                Console.WriteLine($"{item.Name} {item.Price} {item.Number}");
-            }
+            return  $"Id = {Id} - {Name} {Price} {Number}";
         }
-
-        public string ProductSales()
-        {
-            throw new NotImplementedException();
-        }
-
         public void AddProduct(Products product)
         {
             Console.WriteLine("<----Yeni mehsul elave et---->");
@@ -54,8 +47,25 @@ namespace CSharpFinal.Classes
             Number = Convert.ToInt32(Console.ReadLine());
             Array.Resize(ref products, products.Length + 1);
             products[products.Length - 1] = product;
-           
+
         }
+
+        public  void ShowProduct(Products product)
+        {
+           
+            foreach (Products pro in products)
+            { 
+                    Console.WriteLine(pro);
+            }
+            
+        }
+
+        public string ProductSales()
+        {
+            throw new NotImplementedException();
+        }
+
+        
 
         public void ChangeProductInfo()
         {

@@ -15,13 +15,26 @@ namespace CSharpFinal
         static void Main(string[] args)
         {
             Start();
-
-            //Products product1 = new Products("Qatiq", 2.50, 3);
-            //Products product2 = new Products("Kesmik",3.45,12);
             //product1.AddProduct();
             //Console.WriteLine(product2);
             //List<Products> products = new List<Products>();
             //products.Add(product1); 
+            //Products product1 = new Products("Qatiq", 2.50, 3);
+            //Products product2 = new Products("Kesmik", 3.45, 12);
+            //Products product3 = new Products("Cay", 45, 33);
+            //Products product4 = new Products("Araq", 345, 2);
+
+            //product1.AddProduct(product1);
+            //product2.AddProduct(product2);
+            //product3.AddProduct(product3);
+            //product1.ShowProduct();
+            //product2.ShowProduct();
+            //product3.ShowProduct();
+
+
+
+
+
 
         }
 
@@ -29,9 +42,10 @@ namespace CSharpFinal
 
         public  static void Start()
         {
-            Console.WriteLine("1-Satislar uzerinde emeliyyat aparmaq");
-            Console.WriteLine("2-Sistemden cixmaq");
-            Console.WriteLine("3-Duzgun reqem daxil edin edin");
+            Again:
+            Console.WriteLine("1- Mehsullar uzerinde emeliyyat aparmaq");
+            Console.WriteLine("2-Satislar uzerinde emeliyyat aparmaq");
+            Console.WriteLine("3-Sistemden cixmaq");
             Console.WriteLine("Reqem daxil et");
             string a = Console.ReadLine();
             if (a=="1")
@@ -51,13 +65,14 @@ namespace CSharpFinal
 
                     case "1":
                         Products product1 = new Products();
-                        Products product2 = new Products();
+                        //Products product2 = new Products();
                         product1.AddProduct(product1);
-                        product2.AddProduct(product2);
-                        product1.ShowProduct();
-                        product2.ShowProduct();
-                        //Console.WriteLine($"{product1.Name},{product1.Price },{ product1.Number}");                       
+                        //product2.AddProduct(product2);
+
+                        Console.WriteLine($"{product1.Name},{product1.Price },{ product1.Number}"); 
+                        goto Again;
                         break;
+                      
 
                     case "2":
                         Console.WriteLine("2-Mehsul uzerinde duzelis et");
@@ -66,7 +81,12 @@ namespace CSharpFinal
                         Console.WriteLine("3-Mehsulu sil");
                         break;
                     case "4":
-                        Console.WriteLine("4-Butun mehsullari goster");
+                        Products product = new Products();
+                        product.ShowProduct(product);
+
+                        Console.WriteLine("==========");
+                        
+                        
                         break;
                     case "5":
                         Console.WriteLine("5-Categoriyasina gore mehsullari goster");
@@ -80,7 +100,7 @@ namespace CSharpFinal
                     default:
                         Console.WriteLine("Duzgun reqem daxil edin{1,2,3,4,5,6,7}");
                         break;
-                }
+                }goto Again;
             }
             else if (a=="2")
             {
@@ -95,6 +115,11 @@ namespace CSharpFinal
                 Console.WriteLine("Duzgun reqem daxil edin edin");
             }
             
+        }
+
+        private static void ShowProduct()
+        {
+            throw new NotImplementedException();
         }
 
         private static object AddProduct()

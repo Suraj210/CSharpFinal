@@ -10,7 +10,7 @@ namespace CSharpFinal.Interfaces
     interface IProduct
     {
       // Mehsullar
-        void  ShowProduct();
+        void  ShowProduct(Products product);
       //Satisdan mehsulun geri qaytarilmasi
         string ProductSales();
       //Yeni mehsul elave etmek
