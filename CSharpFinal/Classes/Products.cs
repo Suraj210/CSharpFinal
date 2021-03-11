@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace CSharpFinal.Classes
 {
-    class Products:IProduct
+    class  Products:IProduct
     {
+        List<Products> products= new List<Products>();
+
         public string Name { get; set; }
         public double Price { get; set; }
         public enum Category { }
@@ -19,6 +21,13 @@ namespace CSharpFinal.Classes
         {
             _id++;
             Id = _id++;
+        }
+        public Products(string name, double price,int number)
+        {
+            Name = name;
+            Price = price;
+            Number = number;
+
         }
 
         void IProduct.Products()
@@ -33,7 +42,15 @@ namespace CSharpFinal.Classes
 
         public void AddProduct()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Yeni mehsul elave et");
+            Console.WriteLine("Mehsulun Adin Daxil edin");
+            Name = Console.ReadLine();
+            Console.WriteLine("Mehsulun Qiymetin Daxil Edin");
+            Price = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Mehsulun Sayin Daxil Edin");
+            Number = Convert.ToInt32(Console.ReadLine());
+            products.Add(new Products(Name, Price, Number));
+           
         }
 
         public void ChangeProductInfo()
