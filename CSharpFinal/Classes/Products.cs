@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CSharpFinal.Classes
 {
-    class  Products:IProduct
+    class Products : IProduct
     {
-        List<Products> products= new List<Products>();
+        private Products[] products = new Products[0];
 
         public string Name { get; set; }
         public double Price { get; set; }
@@ -30,9 +30,12 @@ namespace CSharpFinal.Classes
 
         }
 
-        void IProduct.Products()
+        public void ShowProduct()
         {
-            throw new NotImplementedException();
+            foreach (Products item in products)
+            {
+                Console.WriteLine($"{item.Name} {item.Price} {item.Number}");
+            }
         }
 
         public string ProductSales()
@@ -40,16 +43,17 @@ namespace CSharpFinal.Classes
             throw new NotImplementedException();
         }
 
-        public void AddProduct()
+        public void AddProduct(Products product)
         {
-            Console.WriteLine("Yeni mehsul elave et");
+            Console.WriteLine("<----Yeni mehsul elave et---->");
             Console.WriteLine("Mehsulun Adin Daxil edin");
             Name = Console.ReadLine();
             Console.WriteLine("Mehsulun Qiymetin Daxil Edin");
             Price = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Mehsulun Sayin Daxil Edin");
             Number = Convert.ToInt32(Console.ReadLine());
-            products.Add(new Products(Name, Price, Number));
+            Array.Resize(ref products, products.Length + 1);
+            products[products.Length - 1] = product;
            
         }
 

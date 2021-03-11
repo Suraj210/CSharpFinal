@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpFinal.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,11 +10,11 @@ namespace CSharpFinal.Interfaces
     interface IProduct
     {
       // Mehsullar
-        void Products();
+        void  ShowProduct();
       //Satisdan mehsulun geri qaytarilmasi
         string ProductSales();
       //Yeni mehsul elave etmek
-        void AddProduct();
+        void AddProduct(Products product);
       //Mehsulun adini,sayini ve meblegini,categoriyasini deyismek
         void ChangeProductInfo();
       //Verilmis kateqoriyaya esasen hemin kateqoriyada olan mehsullarin qaytarilmasi

@@ -51,8 +51,12 @@ namespace CSharpFinal
 
                     case "1":
                         Products product1 = new Products();
-                        product1.AddProduct();
-                        Console.WriteLine($"{product1.Name},{product1.Price },{ product1.Number}");                       
+                        Products product2 = new Products();
+                        product1.AddProduct(product1);
+                        product2.AddProduct(product2);
+                        product1.ShowProduct();
+                        product2.ShowProduct();
+                        //Console.WriteLine($"{product1.Name},{product1.Price },{ product1.Number}");                       
                         break;
 
                     case "2":
